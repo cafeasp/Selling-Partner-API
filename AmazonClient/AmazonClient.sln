@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30611.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmazonClient", "AmazonClient\AmazonClient.csproj", "{B3888679-81F0-4266-B925-BEA84A69E0AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Signer", "Signer\Signer.csproj", "{8720D9BC-02D0-48F5-9549-C025D5F9346C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B3888679-81F0-4266-B925-BEA84A69E0AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3888679-81F0-4266-B925-BEA84A69E0AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3888679-81F0-4266-B925-BEA84A69E0AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3888679-81F0-4266-B925-BEA84A69E0AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8720D9BC-02D0-48F5-9549-C025D5F9346C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8720D9BC-02D0-48F5-9549-C025D5F9346C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8720D9BC-02D0-48F5-9549-C025D5F9346C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8720D9BC-02D0-48F5-9549-C025D5F9346C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0E706BF7-4FD2-4FA0-8EED-D7914B4D06E9}
+	EndGlobalSection
+EndGlobal
