@@ -12,7 +12,7 @@ namespace AmazonClient {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.7.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.8.1.0")]
     internal sealed partial class AppCred : global::System.Configuration.ApplicationSettingsBase {
         
         private static AppCred defaultInstance = ((AppCred)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new AppCred())));
@@ -61,7 +61,7 @@ namespace AmazonClient {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://api.amazon.com/auth/o2/token")]
         public string Endpoint {
             get {
                 return ((string)(this["Endpoint"]));

@@ -12,7 +12,7 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="Endpoint" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">https://api.amazon.com/auth/o2/token</Value>
     </Setting>
     <Setting Name="AccessKeyId" Type="System.String" Scope="User">
       <Value Profile="(Default)" />

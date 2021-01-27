@@ -55,6 +55,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>AppCred.settings</DependentUpon>
     </Compile>
+    <Compile Include="InventoryModel\InventoryDetails.cs" />
     <Compile Include="OrderModel\BillToParty.cs" />
     <Compile Include="OrderModel\Item.cs" />
     <Compile Include="OrderModel\NetPrice.cs" />
@@ -91,5 +92,6 @@
       <Name>Signer</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

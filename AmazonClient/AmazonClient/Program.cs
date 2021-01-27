@@ -7,6 +7,7 @@ using RestSharp;
 using Newtonsoft.Json;
 using Signer;
 using DFOrder.Model;
+using AmazonClient.InventoryModel;
 
 namespace AmazonClient
 {
@@ -19,16 +20,21 @@ namespace AmazonClient
         private const string live_url_base = "https://sellingpartnerapi-na.amazon.com";
         private const string sandbox_url_base = "https://sandbox.sellingpartnerapi-na.amazon.com";//did not work
         static string content_form_urlencoded = "application/x-www-form-urlencoded";
+        static string content_json = "application/json";
         static string purchase_order_resource = "/vendor/directFulfillment/orders/v1/purchaseOrders";
         #endregion
         static void Main(string[] args)
         {
+            
+
             signatureHelper = new AuthHelper(
                  AppCred.Default.ClientId, AppCred.Default.ClientSecret, AppCred.Default.RefreshToken, new Uri(AppCred.Default.Endpoint),
                  AppCred.Default.AccessKeyId, AppCred.Default.SecretKey, AppCred.Default.Region
             );
 
-            OrderImport();
+            //OrderImport();
+
+            UpdateInventory();
         }
 
 
@@ -83,6 +89,66 @@ namespace AmazonClient
             }
         }
 
+        static void UpdateInventory()
+        {
+            string your_dc_id = "ABC";
 
+            string inventory_url = "/vendor/directFulfillment/inventory/v1/warehouse/" + your_dc_id + "/items";
+
+            restClient = new RestClient(live_url_base);
+            IRestRequest restRequest = new RestRequest(inventory_url, Method.POST);
+            
+
+            restRequest.AddHeader("x-amz-access-token", "token_from_your_secure_db");
+
+            string json = BuildInventoryUpdateFeed();
+
+            restRequest.AddParameter(content_json, json, ParameterType.RequestBody);
+
+            var request = signatureHelper.SignRequest(restRequest, restClient, content_json);
+
+            try
+            {
+                var result = restClient.Execute(request);
+
+            }
+            catch (Exception e)
+            {
+
+                throw;
+            }
+
+
+        }
+
+        static string BuildInventoryUpdateFeed()
+        {
+            var details = new InventoryDetails();
+            details.sellingParty = new InventoryModel.SellingParty() { partyId = "your_vendor_id" };
+            details.isFullUpdate = false;
+            
+            var update = new InventoryUpdate();
+            update.inventory = details;
+            
+            var list = new List<InventoryItem>();
+            var item = new InventoryItem();
+            item.buyerProductIdentifier = "buyer_item";
+            item.vendorProductIdentifier = "vendor_item";
+            item.isObsolete = false;
+
+            var available = new Available();
+            available.amount = 345;
+            available.unitOfMeasure = "Each";
+
+            item.availableQuantity = available;
+
+            list.Add(item);
+
+            details.items = list;
+
+            return JsonConvert.SerializeObject(update, Formatting.Indented);
+
+            
+        }
     }
 }
